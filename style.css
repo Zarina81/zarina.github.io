@@ -1,0 +1,87 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Основной Flexbox */
+}
+
+header {
+  background-color: #f0f0f0;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+main {
+  padding: 20px 0;
+}
+
+.intro {
+  text-align: center;
+}
+
+.services {
+  margin-top: 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid для услуг */
+  gap: 20px;
+}
+
+.service {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Адаптивность (например, для iPhone и iPad)*/
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Изменение направления Flexbox для мобильных устройств */
+  }
+
+  nav ul {
+    flex-direction: column; /* Меню в столбец */
+  }
+
+  nav li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* Одна колонка для услуг */
+  }
+}

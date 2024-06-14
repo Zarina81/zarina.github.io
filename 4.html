@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .required {
+            color: red;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Регистрация</h2>
+        <form action="check.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <h3>Личная информация</h3>
+                <label for="surname">Фамилия<span class="required">*</span></label>
+                <input type="text" id="surname" name="surname" required>
+                <div class="error" id="surnameError"></div>
+
+                <label for="name">Имя<span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+                <div class="error" id="nameError"></div>
+
+                <label for="patronymic">Отчество</label>
+                <input type="text" id="patronymic" name="patronymic">
+                <div class="error" id="patronymicError"></div>
+
+                <label for="gender">Пол<span class="required">*</span></label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                </select>
+
+                <label for="eyeColor">Цвет глаз</label>
+                <input type="color" id="eyeColor" name="eyeColor">
+
+                <label for="birthdate">Дата рождения<span class="required">*</span></label>
+                <input type="date" id="birthdate" name="birthdate" required>
+                <div class="error" id="birthdateError"></div>
+
+                
+            <label for="age">Возраст*<span class="required">*</span>:</label>
+                 <input type="number" name="age" min="18" max="100">
+            
+
+           
+</div>
+            <div class="form-group">
+                <h3>Контактная информация</h3>
+               <label for="birthplace">Место рождения<span class="required">*</span>:</label>
+    <input type="text" id="birthplace" name="birthplace" list="birthplace-list" required>
+    <datalist id="birthplace-list">
+      <option value="Москва">Москва</option>
+      <option value="Санкт-Петербург">Санкт-Петербург</option>
+      <option value="Саратов">Саратов</option>
+      </datalist>
+
+
+                <div class="error" id="birthplaceError"></div>
+
+                <label for="index">Индекс<span class="required">*</span></label>
+                <input type="text" id="index" name="index" required>
+                <div class="error" id="indexError"></div>
+
+                <label for="address">Домашний адрес<span class="required">*</span></label>
+                <input type="text" id="address" name="address" required>
+                <div class="error" id="addressError"></div>
+
+                <label for="registrationDate">Дата регистрации<span class="required">*</span></label>
+                <input type="date" id="registrationDate" name="registrationDate" required>
+                <div class="error" id="registrationDateError"></div>
+
+                <label for="phone">Номер телефона<span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required>
+                <div class="error" id="phoneError"></div>
+
+                <label for="email">E-mail<span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError"></div>
+
+                <label for="passport">Скриншот первой страницы паспорта клиента<span class="required">*</span></label>
+                <input type="file" id="passport" name="passport" accept="image/jpeg" required>
+                <div class="error" id="passportError"></div>
+            </div>
+
+            <div class="form-group">
+                <h3>Общая информация</h3>
+                <label for="source">Откуда вы узнали о нашем магазине?</label>
+                <div>
+                    <input type="checkbox" id="source1" name="source[]" value="реклама">
+                    <label for="source1">Реклама</label><br>
+                    <input type="checkbox" id="source2" name="source[]" value="друзья">
+                    <label for="source2">Друзья</label><br>
+                    <input type="checkbox" id="source3" name="source[]" value="интернет">
+                    <label for="source3">Интернет</label><br>
+                    <input type="checkbox" id="source4" name="source[]" value="другое">
+                    <label for="source4">Другое</label>
+                </div>
+
+                <input type="checkbox" id="agreement" name="agreement" required>
+                <label for="agreement">Я согласен с обработкой и хранением персональных данных<span class="required">*</span></label>
+            </div>
+
+            <input type="submit" value="Отправить" class="button">
+            <input type="reset" value="Очистить" class="button">
+        </form>
+    </div>
+    <script>
+   // Валидация форм
+        document.addEventListener('DOMContentLoaded', function() {
+            // Валидация фамилии, имени, отчества (только русские буквы)
+            const surnameInput = document.getElementById('surname');
+            const nameInput = document.getElementById('name');
+            const patronymicInput = document.getElementById('patronymic');
+
+            surnameInput.addEventListener('input', function() {
+                validateName(this, 'surnameError');
+            });
+
+            nameInput.addEventListener('input', function() {
+                validateName(this, 'nameError');
+            });
+
+            patronymicInput.addEventListener('input', function() {
+                validateName(this, 'patronymicError');
+            });
+
+            // Валидация даты рождения
+            const birthdateInput = document.getElementById('birthdate');
+            birthdateInput.addEventListener('change', function() {
+                validateBirthdate(this, 'birthdateError');
+            });
+
+            // Валидация места рождения
+            const birthplaceSelect = document.getElementById('birthplace');
+            birthplaceSelect.addEventListener('change', function() {
+                validateBirthplace(this, 'birthplaceError');
+            });
+
+            // Валидация индекса
+            const indexInput = document.getElementById('index');
+            indexInput.addEventListener('input', function() {
+                validateIndex(this, 'indexError');
+            });
+
+            // Валидация адреса
+            const addressInput = document.getElementById('address');
+            addressInput.addEventListener('input', function() {
+                validateAddress(this, 'addressError');
+            });
+
+            // Валидация даты регистрации
+            const registrationDateInput = document.getElementById('registrationDate');
+            registrationDateInput.addEventListener('change', function() {
+                validateRegistrationDate(this, 'registrationDateError');
+            });
+
+            // Валидация телефона
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', function() {
+                validatePhone(this, 'phoneError');
+            });
+
+            // Валидация e-mail
+            const emailInput = document.getElementById('email');
+            emailInput.addEventListener('input', function() {
+                validateEmail(this, 'emailError');
+            });
+
+            // Валидация скриншота паспорта
+            const passportInput = document.getElementById('passport');
+            passportInput.addEventListener('change', function() {
+                validatePassport(this, 'passportError');
+            });
+
+            function validateName(input, errorId) {
+                const errorElement = document.getElementById(errorId);
+                if (input.value.match(/^[А-Яа-я]+$/)) {
+                    errorElement.textContent = '';
+                } else {
+                    errorElement.textContent = 'Допускаются только русские буквы';
+                }
+            }
+
+            function validateBirthdate(input, errorId) {
+                const errorElement = document.getElementById(errorId);
+                const today = new Date();
+                const birthdate = new Date(input.value);
+                if (birthdate > today) {
+                    errorElement.textContent = 'Дата рождения не может быть в будущем';
+                } else {
+                    errorElement.textContent = '';
+                }
+            }
+
+            function validateBirthplace(select, errorId) {
+                const errorElement = document.getElementById(errorId);
+                if (select.value === '') {
+                    errorElement.textContent = 'Выберите место рождения';
+                } else {
+                    errorElement.textContent = '';
+                }
+            }
+
+            function validateIndex(input, errorId) {
+                const errorElement = document.getElementById(errorId);
+                if (input.value.match(/^[0-9]{6}$/)) {
+                    errorElement.textContent = '';
+                } else {
+                    errorElement.textContent = 'Неверный формат индекса';
+                }
+            }
+
+            function validateAddress(input, errorId) {
+                const errorElement = document.getElementById(errorId);
+                if (input.value.trim() === '') {
+                    errorElement.textContent = 'Введите адрес';
+                } else {errorElement.textContent = '';
+                }
+            }
+
+            function validateRegistrationDate(input, errorId) {
+                const errorElement = document.getElementById(errorId);
+                const today = new Date();
+                const registrationDate = new Date(input.value);
+                if (registrationDate > today) {
+                    errorElement.textContent = 'Дата регистрации не может быть в будущем';
+                } else {
+                    errorElement.textContent = '';
+                }
+            }
+
+            function validatePhone(input, errorId) {
+                const errorElement = document.getElementById(errorId);
+                if (input.value.match(/^\+7-\d{3}-\d{3}-\d{2}-\d{2}$/)) {
+                    errorElement.textContent = '';
+                } else {
+                    errorElement.textContent = 'Неверный формат номера телефона';
+                }
+            }
+
+            function validateEmail(input, errorId) {
+                const errorElement = document.getElementById(errorId);
+                const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (emailPattern.test(input.value)) {
+                    errorElement.textContent = '';
+                } else {
+                    errorElement.textContent = 'Неверный формат e-mail';
+                }
+            }
+
+            function validatePassport(input, errorId) {
+                const errorElement = document.getElementById(errorId);
+                if (input.files.length > 0 && input.files[0].type === 'image/jpeg') {
+                    errorElement.textContent = '';
+                } else {
+                    errorElement.textContent = 'Файл должен быть в формате JPEG';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
